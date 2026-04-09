@@ -2,7 +2,8 @@
 
 void Ejercicio1()
 {
-    for (int num = 0; num < 11; num++) {
+    for (int num = 0; num < 11; num++) 
+    {
         Console.WriteLine(num);
     }
 }
