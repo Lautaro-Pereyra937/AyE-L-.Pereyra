@@ -3,10 +3,11 @@
     string contraseña = ("ratas");
     Console.WriteLine("Ingrese la contraseña");
     string usuario = Console.ReadLine();
-    while(contraseña != usuario)
+    
+    while (contraseña != usuario)
     {
         Console.WriteLine("intentalo de nuevo");
-        Console.ReadLine();
+        usuario = Console.ReadLine();
     }
     Console.WriteLine("entrando");
 }
@@ -14,16 +15,8 @@ ejercicio1();
 
 void ejercicio2()
 {
-    bool sapo = true;
-    while (sapo != true)
-    {
-        Console.WriteLine("no");
-    }
-    Console.WriteLine("5");
-    Console.WriteLine("4");
-    Console.WriteLine("3");
-    Console.WriteLine("2");
-    Console.WriteLine("1");
+    for (int num = 5; num >= 1; num--)
+        Console.WriteLine(num);
     Console.WriteLine("¡Listo para despegar!");
     Console.WriteLine("¡Despegue!");
 }
