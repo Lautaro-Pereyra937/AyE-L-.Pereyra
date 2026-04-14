@@ -81,11 +81,15 @@ string Ejercicio5(int edad)
     }
 }
 
-Console.WriteLine("Ingrese 1 para ejercicio 1 , 2 para ejercicio 2 , 3 para ejercicio 3 , 4 para ejercicio 4 , 5 para ejercicio 5 y 6 para salir");
-int numero = Convert.ToInt32(Console.ReadLine());
+bool ejecutando = true;
 
-switch (numero)
- { 
+while (ejecutando == true)
+{
+   Console.WriteLine("Ingrese 1 para ejercicio 1 , 2 para ejercicio 2 , 3 para ejercicio 3 , 4 para ejercicio 4 , 5 para ejercicio 5 y 6 para salir");
+   int numero = Convert.ToInt32(Console.ReadLine());
+   
+   switch (numero)
+   { 
     case 1:
         Console.WriteLine("Ingrese un numero");
       Console.WriteLine(Ejercicio1(Convert.ToInt32(Console.ReadLine())));
@@ -113,5 +117,6 @@ switch (numero)
     
     default:
       Console.WriteLine("Saliendo");
-    break;
+      break;
+  }
 }
