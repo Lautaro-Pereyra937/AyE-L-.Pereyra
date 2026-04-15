@@ -114,9 +114,14 @@ while (ejecutando == true)
       Console.WriteLine("Ingrese su edad");
       Console.WriteLine(Ejercicio5(Convert.ToInt32(Console.ReadLine())));
       break;
-    
+
+    case 6:
+      Console.WriteLine("Saliendo);
+      ejecutando = false;
+      break;     
+  
     default:
-      Console.WriteLine("Saliendo");
+      Console.WriteLine("Solo hay 6 ejercicios disponibles");
       break;
   }
 }
