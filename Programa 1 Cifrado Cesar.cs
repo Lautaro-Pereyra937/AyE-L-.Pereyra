@@ -1,4 +1,4 @@
-﻿string abedecedario = "abcdefghijklmnñopqrstuvwxyz";
+﻿string abedecedario = "abcdefghijklmnñopqrstuvwxyz ";
 void funcion1()
 {
     bool esValido = false;
@@ -17,7 +17,7 @@ void funcion1()
 
             for (int num = 0; num < abedecedario.Length; num++)
             {
-                if (caracterUsuario == abedecedario[i])
+                if (caracterUsuario == abedecedario[num])
                 {
                     encontrado = true;
                     break;
@@ -41,6 +41,7 @@ void funcion1()
     }
 }
 funcion1();
+
 void cifrado(string texto,string abecedario)
 {
     
@@ -51,20 +52,51 @@ void cifrado(string texto,string abecedario)
 
     for (int x = 0; x < texto.Length; x++)
     {
-        for(int num = 0;num < abecedario.Length; x++)
+        bool cifrar = false;
+        for(int num = 0;num < abecedario.Length; num++)
         {
             if (texto[x] == abecedario[num])
             {
-                textoactualizado = textoactualizado + abecedario[num+clave];
+                int nuevaPosicion = (num + clave) % abecedario.Length;
+                if (nuevaPosicion < 0) nuevaPosicion += abecedario.Length;
+                textoactualizado += abecedario[nuevaPosicion];
+                cifrar = true;
+                break;
             }
         }
     }
     Console.WriteLine(textoactualizado);
 }
 
+void descifrado(string texto,string abecedario)
+{
+    
+    Console.WriteLine("Ingrese la clave(numero entero)");
+    int clave = Convert.ToInt32(Console.ReadLine());
+
+    string textodescifrado = "";
+
+    for (int x = 0; x < texto.Length; x++)
+    {
+        bool cifrar = false;
+        for(int num = 0;num < abecedario.Length; num++)
+        {
+            if (texto[x] == abecedario[num])
+            {
+                int nuevaPosicion = (num - clave + abecedario.Length) % abecedario.Length;
+                if (nuevaPosicion < 0) nuevaPosicion += abecedario.Length;
+                textodescifrado += abecedario[nuevaPosicion];
+                cifrar = true;
+                break;
+            }
+        }
+    }
+    Console.WriteLine(textodescifrado);
+}
+
 void funcion2()
 {
-    funcion1();
+    string texto = funcion1();
     bool ejecutando = true;
 
     while (ejecutando == true)
@@ -75,12 +107,10 @@ void funcion2()
         switch (numero)
         {
             case 1:
-                Console.WriteLine(cifrado);
+                cifrado(texto, abecedario);
                 break;
             case 2:
-                Console.WriteLine("hola");
-                
-                
+                descifrado(texto, abecedario);
                 break;
             case 3:
                 Console.WriteLine("Terminando");
