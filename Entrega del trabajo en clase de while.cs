@@ -26,14 +26,14 @@ void ejercicio2()
     while (incorrecto2 == false)
     {
         int numero2 = Convert.ToInt32(Console.ReadLine());
-        if (numero2 < 10 || numero2 > 99)
+        if ((numero2 >= 10 && numero2 <= 99) || (numero2 <= -10 && numero2 >= -99))
         {
-            Console.WriteLine("Ingrese un numero de dos cifras");
+            Console.WriteLine("Bien");
+            incorrecto2 = true;
         }
         else
         {
-            Console.WriteLine("bien");
-            incorrecto2 = true;
+            Console.WriteLine("Ingrese un numero de dos cifras");
         }
     }
 }
