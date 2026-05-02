@@ -44,7 +44,6 @@ funcion1();
 
 void cifrado(string texto, string abecedario)
 {
-
     Console.WriteLine("Ingrese la clave(numero entero)");
     int clave = Convert.ToInt32(Console.ReadLine());
 
@@ -121,5 +120,5 @@ void funcion2()
                 break;
         }
     }
-    funcion2();
 }
+funcion2();
