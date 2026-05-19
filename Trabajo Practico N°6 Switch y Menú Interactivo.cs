@@ -116,7 +116,7 @@ while (ejecutando == true)
       break;
 
     case 6:
-      Console.WriteLine("Saliendo);
+      Console.WriteLine("Saliendo");
       ejecutando = false;
       break;     
   
