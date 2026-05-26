@@ -23,22 +23,22 @@ while (condicion2)
 {
     if (opcion == 1)
     {
-        palabra = "merentiel";
+        palabra = "ratas";
         condicion2 = false;
     }
     else if (opcion == 2)
     {
-        palabra = "pomni";
+        palabra = "ratones";
         condicion2 = false;
     }
     else if (opcion == 3)
     {
-        palabra = "ornitorrinco";
+        palabra = "ratoncitos";
         condicion2 = false;
     }
     else if (opcion < 1 || opcion > 3)
     {
-        Console.WriteLine("El numero ingresado no se encuentra dentro de los parametros, por favor, ingrese 1,2 o 3");
+        Console.WriteLine("Ingrese 1, 2 o 3");
         opcion = Convert.ToInt32(Console.ReadLine());
     }
 }
