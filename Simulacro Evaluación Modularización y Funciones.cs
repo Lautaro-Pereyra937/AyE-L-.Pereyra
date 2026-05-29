@@ -1,28 +1,44 @@
-﻿void prueba()
+void ejercicioprueba()
 {
-    Console.WriteLine("ingrese su nombre");
+    Console.WriteLine("Ingrese su nombre");
     string nombre = Console.ReadLine();
-    Console.WriteLine("Ingrese su promedio");
-    float promedio = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine("Ingrese la distancia de su casa a la universidad");
-    int distancia = Convert.ToInt32(Console.ReadLine());
 
-    static bool DeterminarBeca(float promedio, int distancia)
+    Console.WriteLine("Ingrese su edad");
+    int edad = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("¿Tiene entrada fisica?");
+    bool tieneEntrada = Convert.ToBoolean(Console.ReadLine());
+
+    if (edad >= 18 && tieneEntrada == true)
     {
-        bool resultado = DeterminarBeca(promedio, distancia);
-        if (resultado == true)
+        Console.WriteLine($"Bienvenido {nombre}");
+    }
+    else { Console.WriteLine("adios"); }
+
+    bool validarIngreso(int edad, bool tieneEntrada)
+    {
+        bool res;
+        if (edad >= 18 && tieneEntrada == true)
         {
-            Console.Write("Felicidades ");
-            Console.Write(nombre);
-            Console.Write(", ");
-            Console.WriteLine("tu beca ha sido aprobada");
-            return true;
+            res = true;
+            return res;
         }
         else
         {
-            Console.WriteLine("Lo sentimos, no cumples con los requisitos mínimos");
-            return false;
+            res = false;
+            return res;
         }
     }
+
+    bool puedepasar = validarIngreso(edad, tieneEntrada);
+
+    if(puedepasar == true)
+    {
+        Console.WriteLine("Acceso concedido. ¡Bienvenido!");
+    }
+    else
+    { 
+       Console.WriteLine("Acceso denegado.No cumple los requisitos");
+    }
 }
-prueba();
+ejercicioprueba();
