@@ -99,3 +99,21 @@ void ganador(int puntuacionequipo2, int puntuacionequipo1)
     Console.WriteLine($"Han empatado con una puntuacion de {puntuacionequipo1}");
    }
 }
+
+Console.WriteLine("Ingrese el numero a elevar");
+int elevar = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Ingrese su potencia");
+int potencia = Convert.ToInt32(Console.ReadLine());
+
+int potenciadeunnumero(int elevar,int potencia)
+{    
+   if(potencia == 0)
+   {
+      return 1;
+   }
+   else
+   {
+      return elevar*potenciadeunnumero(elevar,potencia-1);
+   }
+}
