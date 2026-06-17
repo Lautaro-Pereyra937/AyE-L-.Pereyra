@@ -8,7 +8,7 @@ string[] nombres = [ "Romario", "Bergkamp", "Zidane", "Simeone", "Kaka",
     "Ronaldo Nazario", "Ronaldinho", "Kluivert", "Dugarry", "Veron",
     "Scolari", "Van Nistelrooy", "Maldini"];
 
-string[] posicion = ["delantero", "mediocampista", "defensa", "arquero", "delantero", "mediocampista", "defensa", "arquero", "delantero", "mediocampista", "defensa", "arquero", "delantero", "mediocampista", "defensa", "arquero", "delantero", "mediocampista", "defensa", "arquero", "delantero", "mediocampista", "defensa", "arquero", "delantero", "mediocampista", "defensa", "arquero", "delantero", "mediocampista", "defensa", "arquero", "delantero", "mediocampista", "defensa", "arquero"];
+string[] posicion = ["delantero", "mediocampista", "defensa", "arquero"];
 
 Random rendimiento = new Random();
 
