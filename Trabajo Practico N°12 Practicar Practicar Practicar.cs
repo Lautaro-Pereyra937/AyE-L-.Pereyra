@@ -1,0 +1,927 @@
+﻿using System.Reflection.Metadata;
+
+Console.WriteLine("Ingrese el codigo");
+string c = Console.ReadLine();
+string c2 = c.ToUpper();
+string ejercicio1(string c2)
+{
+    switch (c2)
+    {
+        case "I":
+            Console.WriteLine("La cuota es de 800,00 y la categoria es infantiles");
+            break;
+        case "C":
+            Console.WriteLine("La cuota es de 1.000,00 y la categoria es cadete");
+
+            break;
+        case "J":
+            Console.WriteLine("La cuota es de 1.200,00 y la categoria es juvenil");
+
+            break;
+        case "A":
+            Console.WriteLine("La cuota es de 900,0 y la categoria es adulto");
+
+            break;
+        default:
+            Console.WriteLine("El dato ingresado no corresponde a los parametros deseados");
+            break;
+
+    }
+    return c2;
+}
+ejercicio1(c2);
+
+Console.WriteLine("Ingrese el tipo");
+string t = Console.ReadLine();
+string t2 = t.ToUpper();
+Console.WriteLine("Ingrese el destino");
+string d = Console.ReadLine();
+string d2 = d.ToUpper();
+
+string ejercicio2(string t2, string d2)
+{
+    int p = 300;
+    int acum = 0;
+    int acum2 = 0;
+    if (t2 == "S")
+    {
+        acum = 300;
+    }
+    else if (t2 == "X")
+    {
+        acum = p + ((p * 20) / 100);
+    }
+    else if (t2 == "E")
+    {
+        acum = p + ((p * 40) / 100);
+    }
+    else
+    {
+        Console.WriteLine("La letra ingresada no coincide con los parametros establecidos");
+    }
+    if (d2 == "L")
+    {
+        acum2 = ((p * 5) / 100);
+    }
+    else if (d2 == "N")
+    {
+        acum2 = ((p * 20) / 100);
+    }
+    else
+    {
+        Console.WriteLine("La letra ingresada no coincide con los parametros establecidos");
+    }
+    Console.WriteLine("El coste es de " + (acum + acum2));
+    return t2;
+
+}
+ejercicio2(t2, d2);
+
+Console.WriteLine("Ingrese el sueldo basico");
+int sueldob = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Ingrese si corresponde o no el presentismo 0 == CORRESPONDE / 1 == NO CORRESPONDE");
+int presentcorr = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Ingrese el codigo de la antiguedad (del 1 al 4)");
+int antiguecod = Convert.ToInt32(Console.ReadLine());
+int ejercicio3(int sueldob, int antiguecod, int presentcorr)
+{
+    double present = 0;
+    double sueldonet = 0;
+    double remuneracion = 0;
+    double descuentos = 0;
+    double jubilacion = 0;
+    double obrasoci = 0;
+    double antigue = 0;
+    if (presentcorr == 1)
+    {
+        present = 0;
+    }
+    else if (presentcorr == 0)
+    {
+        present = ((sueldob * 10) / 100);
+    }
+    if (antiguecod == 1)
+    {
+        antigue = 0;
+    }
+    else if (antiguecod == 2)
+    {
+        antigue = ((sueldob * 10) / 100);
+    }
+    else if (antiguecod == 3)
+    {
+        antigue = ((sueldob * 15) / 100);
+    }
+    else if (antiguecod == 4)
+    {
+        antigue = ((sueldob * 20) / 100);
+    }
+    remuneracion = sueldob + antigue + present;
+    jubilacion = (remuneracion * 13) / 100;
+    obrasoci = (remuneracion * 3) / 100;
+    descuentos = jubilacion + obrasoci;
+    sueldonet = remuneracion - descuentos;
+    Console.WriteLine("Su total de remuneraciones es de: " + remuneracion);
+    Console.WriteLine("Su total de descuentos es de: " + descuentos);
+    Console.WriteLine("Su sueldo neto es de: " + sueldonet);
+    return sueldob;
+}
+ejercicio3(sueldob, antiguecod, presentcorr);
+
+
+Console.WriteLine("Ingrese el dia con dos digitos");
+int dia = int.Parse(Console.ReadLine());
+Console.WriteLine("Ingrese el mes con dos digitos");
+int mes = int.Parse(Console.ReadLine());
+Console.WriteLine("Ingrese el año con dos digitos");
+int año = int.Parse(Console.ReadLine());
+
+
+int ejercicio4(int dia, int mes, int año)
+{
+    string mes2 = "";
+    switch (mes)
+    {
+        case 01:
+            mes2 = "enero";
+            break;
+        case 02:
+            mes2 = "febrero";
+            break;
+        case 03:
+            mes2 = "marzo";
+            break;
+        case 04:
+            mes2 = "abril";
+            break;
+        case 05:
+            mes2 = "mayo";
+            break;
+        case 06:
+            mes2 = "junio";
+            break;
+        case 07:
+            mes2 = "julio";
+            break;
+        case 08:
+            mes2 = "agosto";
+            break;
+        case 09:
+            mes2 = "septiembre";
+            break;
+        case 10:
+            mes2 = "octubre";
+            break;
+        case 11:
+            mes2 = "noviembre";
+            break;
+        case 12:
+            mes2 = "diciembre";
+            break;
+        default:
+            Console.WriteLine("Ingrese el mes de vuelta");
+            mes = int.Parse(Console.ReadLine());
+            ejercicio4(dia, mes, año);
+            break;
+    }
+    Console.WriteLine(dia + " de " + mes2 + " de 20" + año);
+    return dia;
+
+
+}
+ejercicio4(dia, mes, año);
+
+Console.WriteLine("Elija una figura para sacar ya sea el perimetro y/o la superficie" + " 1. Cuadrado  2. Rectángulo   3. Triángulo   4. Círculo   5. Rombo");
+int figura = int.Parse(Console.ReadLine());
+Console.WriteLine("Elija si desea calcular el perimetro o la superficie (0 = perimetro, 1 = superficie)");
+int calculo = int.Parse(Console.ReadLine());
+int ejercicio5(int figura, int calculo)
+{
+    double resultado = 0;
+    int lado = 0;
+    int diagomay = 0;
+    int diagomen = 0;
+    int lado2 = 0;
+    int lado3 = 0;
+    int basee = 0;
+    int altura = 0;
+    int diametro = 0;
+    int radio = 0;
+    switch (figura)
+    {
+        case 1:
+            switch (calculo)
+            {
+                case 0:
+
+                    Console.WriteLine("USTED VA A CALCULAR EL PERIMETRO DE UN CUADRADO- Ingrese la medida de uno de los lados");
+                    lado = int.Parse(Console.ReadLine());
+                    resultado = 4 * lado;
+                    Console.WriteLine("El resultado seria: " + resultado);
+                    break;
+                case 1:
+                    Console.WriteLine("USTED VA A CALCULAR LA SUPERFICIE DE UN CUADRADO - Ingrese la medida de uno de los lados");
+                    lado = int.Parse(Console.ReadLine());
+                    resultado = lado * lado;
+                    Console.WriteLine("El resultado seria: " + resultado);
+                    break;
+            }
+            break;
+
+        case 2:
+            switch (calculo)
+            {
+                case 0:
+
+                    Console.WriteLine("USTED VA A CALCULAR EL PERIMETRO DE UN RECTANGULO- Ingrese la base");
+                    basee = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Ingrese la altura");
+                    altura = int.Parse(Console.ReadLine());
+                    resultado = 2 * (basee + altura);
+                    Console.WriteLine("El resultado seria: " + resultado);
+                    break;
+
+                case 1:
+
+                    Console.WriteLine("USTED VA A CALCULAR LA SUPERFICIE DE UN RECTANGULO- Ingrese la base");
+                    basee = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Ingrese la altura");
+                    altura = int.Parse(Console.ReadLine());
+                    resultado = basee * altura;
+                    Console.WriteLine("El resultado seria: " + resultado);
+                    break;
+
+            }
+            break;
+        case 3:
+            switch (calculo)
+            {
+                case 0:
+                    Console.WriteLine("USTED VA A CALCULAR EL PERIMETRO DE UN TRIANGULO- Ingrese el primer lado");
+                    lado = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Ingrese el segundo lado");
+                    lado2 = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Ingrese el tercer lado");
+                    lado3 = int.Parse(Console.ReadLine());
+                    resultado = lado + lado2 + lado3;
+                    Console.WriteLine("El resultado seria: " + resultado);
+                    break;
+                case 1:
+                    Console.WriteLine("USTED VA A CALCULAR LA SUPERFICIE DE UN TRIANGULO- Ingrese la base");
+                    basee = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Ingrese la altura");
+                    altura = int.Parse(Console.ReadLine());
+                    resultado = (basee * altura) / 2;
+                    Console.WriteLine("El resultado seria: " + resultado);
+                    break;
+            }
+            break;
+        case 4:
+            switch (calculo)
+            {
+                case 0:
+                    Console.WriteLine("USTED VA A CALCULAR EL PERIMETRO/LONGITUD DE CIRCUNFERENCIA DE UN CIRCULO- Ingrese el diametro");
+                    diametro = int.Parse(Console.ReadLine());
+                    resultado = diametro * 3.1416;
+                    Console.WriteLine("El resultado seria: " + resultado);
+                    break;
+                case 1:
+                    Console.WriteLine("USTED VA A CALCULAR LA SUPERFICIE/AREA DE UN CIRCULO- Ingrese el radio del circulo");
+                    radio = int.Parse(Console.ReadLine());
+                    resultado = 3.1416 * (radio * radio);
+                    Console.WriteLine("El resultado seria: " + resultado);
+                    break;
+            }
+            break;
+        case 5:
+            switch (calculo)
+            {
+                case 0:
+                    Console.WriteLine("USTED VA A CALCULAR EL PERIMETRO DE UN ROMBO- Ingrese un lado");
+                    lado = int.Parse(Console.ReadLine());
+                    resultado = lado * 4;
+                    Console.WriteLine("El resultado seria: " + resultado);
+                    break;
+                case 1:
+                    Console.WriteLine("USTED VA A CALCULAR LA SUPERFICIE/AREA DE UN ROMBO- Ingrese el diagonal mayor");
+                    diagomay = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Ingrese el diagonal menor");
+                    diagomen = int.Parse(Console.ReadLine());
+                    resultado = (diagomay * diagomen) / 2;
+                    Console.WriteLine("El resultado seria: " + resultado);
+                    break;
+            }
+
+            return lado;
+    }
+    return lado;
+}
+ejercicio5(figura, calculo);
+
+Console.WriteLine("Ingrese cuanto va a pagar");
+int compra = int.Parse(Console.ReadLine());
+int ejercicio6(int compra)
+{
+    double cantidadfin = 0;
+    bool blanco = false;
+    bool verde = false;
+    bool amarilla = false;
+    bool azul = false;
+    bool roja = false;
+    Console.WriteLine("¿Saco una bolita blanca?");
+    blanco = Convert.ToBoolean(Console.ReadLine());
+    Console.WriteLine("¿Saco una bolita verde?");
+    verde = Convert.ToBoolean(Console.ReadLine());
+    Console.WriteLine("¿Saco una bolita amarilla?");
+    amarilla = Convert.ToBoolean(Console.ReadLine());
+    Console.WriteLine("¿Saco una bolita azul?");
+    azul = Convert.ToBoolean(Console.ReadLine());
+    Console.WriteLine("¿Saco una bolita roja?");
+    roja = Convert.ToBoolean(Console.ReadLine());
+    if (blanco == true)
+    {
+        cantidadfin = compra;
+    }
+    if (verde == true)
+    {
+        cantidadfin = compra - (compra * 0.1);
+    }
+    if (amarilla == true)
+    {
+        cantidadfin = compra - (compra * 0.25);
+    }
+    if (azul == true)
+    {
+        cantidadfin = compra - (compra * 0.5);
+    }
+    if (roja == true)
+    {
+        cantidadfin = 0;
+    }
+    Console.WriteLine("La cantidad final es de " + cantidadfin);
+    return compra;
+}
+ejercicio6(compra);
+void ejercicio7()
+{
+    Console.WriteLine("Primer pregunta: ¿Colon descubrio America?");
+    string eleccion = Console.ReadLine();
+    Console.WriteLine("Segunda pregunta: ¿La independencia de Mexico fue en 1810?");
+    string eleccion2 = Console.ReadLine();
+    Console.WriteLine("Tercera pregunta: ¿The Doors fue un grupo de rock Americano?");
+    string eleccion3 = Console.ReadLine();
+    if (eleccion == "no" || eleccion2 == "si" || eleccion3 == "no")
+    {
+        Console.WriteLine("Usted ha perdido ):");
+
+    }
+    else
+    {
+        Console.WriteLine("¡Felicidades, usted ha ganado!");
+    }
+}
+ejercicio7();
+void ejercicio8()
+{
+    Console.WriteLine("Ingrese el numero escogido");
+    int numero = int.Parse(Console.ReadLine());
+    Console.WriteLine("Ingrese el precio total");
+    int precio = int.Parse(Console.ReadLine());
+    double descuento = 0;
+    switch (numero)
+    {
+        case int n when n < 74:
+            descuento = precio * 0.15;
+            break;
+        case int n when n >= 74:
+            descuento = precio * 20;
+            break;
+    }
+    Console.WriteLine("La cantidad de descuento es de: " + descuento);
+
+
+
+}
+ejercicio8();
+void ejercicio9()
+{
+    Console.WriteLine("Ingrese su edad y yo calculo las pulsaciones que tiene que tener");
+    int edad = int.Parse(Console.ReadLine());
+    Console.WriteLine("¿Su genero es masculino o femenino?");
+    string genero = Console.ReadLine();
+    double pulsaciones = 0;
+    if (genero == "masculino")
+    {
+        pulsaciones = (210 - edad) / 10.0;
+    }
+    else if (genero == "femenino")
+    {
+        pulsaciones = (220 - edad) / 10.0;
+    }
+    Console.WriteLine("Sus pulsaciones tendrian que ser de: " + pulsaciones + " por segundo");
+
+
+}
+ejercicio9();
+void ejercicio10()
+{
+    string nombre1 = "", apellido1 = "";
+    double promedio1 = -1;
+
+    string nombre2 = "", apellido2 = "";
+    double promedio2 = -1;
+
+    string nombre3 = "", apellido3 = "";
+    double promedio3 = -1;
+
+
+    for (int i = 1; i <= 3; i++)
+    {
+        Console.WriteLine($"--- Datos del alumno {i} ---");
+        Console.Write("Nombre: ");
+        string nombreActual = Console.ReadLine();
+
+        Console.Write("Apellido: ");
+        string apellidoActual = Console.ReadLine();
+
+        Console.Write("Promedio: ");
+        double promedioActual = double.Parse(Console.ReadLine());
+
+        if (promedioActual > promedio1)
+        {
+
+            nombre3 = nombre2; apellido3 = apellido2; promedio3 = promedio2;
+
+            nombre2 = nombre1; apellido2 = apellido1; promedio2 = promedio1;
+
+            nombre1 = nombreActual; apellido1 = apellidoActual; promedio1 = promedioActual;
+        }
+        else if (promedioActual > promedio2)// profe este lo hice con IA porque no lo entendia ):
+        {
+
+            nombre3 = nombre2; apellido3 = apellido2; promedio3 = promedio2;
+
+            nombre2 = nombreActual; apellido2 = apellidoActual; promedio2 = promedioActual;
+        }
+        else
+        {
+
+            nombre3 = nombreActual; apellido3 = apellidoActual; promedio3 = promedioActual;
+        }
+        Console.WriteLine();
+    }
+    Console.WriteLine($"Abanderado: {nombre1} {apellido1} (Promedio: {promedio1})");
+    Console.WriteLine($"Primer Escolta: {nombre2} {apellido2} (Promedio: {promedio2})");
+    Console.WriteLine($"Segundo Escolta: {nombre3} {apellido3} (Promedio: {promedio3})");
+}
+ejercicio10();
+void ejercicio11()
+{
+    bool sigue = true;
+    string numeroeningles = "";
+    int numero = 0;
+    while (sigue)
+    {
+        Console.WriteLine("Ingrese un numero entre 0-9");
+        numero = int.Parse(Console.ReadLine());
+        if (numero > 9 || numero < 0)
+        {
+            sigue = true;
+        }
+        else
+        {
+            sigue = false;
+        }
+    }
+    switch (numero)
+    {
+        case 0:
+            numeroeningles = "Zero";
+            break;
+        case 1:
+            numeroeningles = "One";
+            break;
+        case 2:
+            numeroeningles = "Two";
+            break;
+        case 3:
+            numeroeningles = "Three";
+            break;
+        case 4:
+            numeroeningles = "Four";
+            break;
+        case 5:
+            numeroeningles = "Five";
+            break;
+        case 6:
+            numeroeningles = "Six";
+            break;
+        case 7:
+            numeroeningles = "Seven";
+            break;
+        case 8:
+            numeroeningles = "Eight";
+            break;
+        case 9:
+            numeroeningles = "Nine";
+            break;
+    }
+    Console.WriteLine("Su numero en ingles es " + numeroeningles);
+
+
+
+
+
+}
+ejercicio11();
+void ejercicio12()
+{
+    Console.WriteLine("Ingrese 1 para triangulo, 2 para circulo, 3 para rectangulo y 4 para hexagono");
+    int eleccion = int.Parse(Console.ReadLine());
+    double area = 0;
+    int basee = 0;
+    int altura = 0;
+    int radio = 0;
+    int perimetro = 0;
+    int apotema = 0;
+    switch (eleccion)
+    {
+        case 1:
+            Console.WriteLine("Ingrese la altura del triangulo");
+            altura = int.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese la base del triangulo");
+            basee = int.Parse(Console.ReadLine());
+            area = (basee * altura) / 2.0;
+            break;
+        case 2:
+            Console.WriteLine("Ingres el radio del circulo");
+            radio = int.Parse(Console.ReadLine());
+            area = Math.PI * (radio * radio);
+            break;
+        case 3:
+            Console.WriteLine("Ingrese la base del rectangulo");
+            basee = int.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese la altura del rectangulo");
+            altura = int.Parse(Console.ReadLine());
+            area = basee * altura;
+            break;
+        case 4:
+            Console.WriteLine("Ingrese el perimetro del hexagono");
+            perimetro = int.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese el apotema del hexagono");
+            apotema = int.Parse(Console.ReadLine());
+            area = (perimetro * apotema) / 2;
+            break;
+
+    }
+    Console.WriteLine("El area de su figura es de: " + area);
+}
+ejercicio12();
+void ejercicio13()
+{
+    Console.WriteLine("Ingrese el primer valor");
+    string primervalor = Console.ReadLine();
+    string primervalor2 = primervalor.ToLower();
+    Console.WriteLine("Ingrese el segundo valor");
+    string segundovalor = Console.ReadLine();
+    string segundovalor2 = segundovalor.ToLower();
+    bool and = false;
+    bool nor = false;
+    if (primervalor2 != "v" && primervalor2 != "f")
+    {
+        Console.WriteLine("El valor ingresado no corresponde a los parametros deseados.");
+        return;
+    }
+    if (segundovalor2 != "v" && segundovalor2 != "f")
+    {
+        Console.WriteLine("El valor ingresado no corresponde a los parametros deseados.");
+        return;
+    }
+    if (primervalor2 == "v" && segundovalor2 == "v")
+    {
+        and = true;
+    }
+    if (primervalor2 == "f" && segundovalor2 == "f")
+    {
+        nor = true;
+    }
+    Console.WriteLine("El resultado de la compuerta logica AND es: " + and);
+    Console.WriteLine("El resultado de la compuerta logica NOR es: " + nor);
+}
+ejercicio13();
+void ejercicio14()
+{
+    int camisascompradas = 0;
+    double descuento = 0;
+    int total = 0;
+    double totalcondescuento = 0;
+    Console.WriteLine("Ingrese la cantidad de camisetas compradas");
+    camisascompradas = int.Parse(Console.ReadLine());
+    Console.WriteLine("Ingrese el precio total");
+    total = int.Parse(Console.ReadLine());
+    if (camisascompradas > 0 && camisascompradas <= 4)
+    {
+        descuento = (total * 12.5) / 100.0;
+        totalcondescuento = total - descuento;
+    }
+    else if (camisascompradas >= 5 && camisascompradas <= 8)
+    {
+        descuento = (total * 20) / 100.0;
+        totalcondescuento = total - descuento;
+    }
+    else
+    {
+        descuento = (total * 31.5) / 100.0;
+        totalcondescuento = total - descuento;
+    }
+    Console.WriteLine("La compra final sin descuento es de: " + total + "$");
+    Console.WriteLine("El monto del descuento es de: " + descuento + "$");
+    Console.WriteLine("La compra con descuento es de: " + totalcondescuento + "$");
+
+
+
+
+}
+ejercicio14();
+void ejercicio15()
+{
+    Console.WriteLine("Ingrese un numero del 1 al 10");
+    int numero = int.Parse(Console.ReadLine());
+    if (numero >= 8 || numero == 6 || numero == 4 || numero == 1)
+    {
+        Console.WriteLine("Su numero no es primo ya que su numero no solo es divisible por 1 y por si mismo.");
+    }
+    else
+    {
+        Console.WriteLine("Su numero es primo");
+    }
+
+
+}
+ejercicio15();
+void ejercicio16()
+{
+    int hora = 0;
+    int minuto = 0;
+    int segundo = 0;
+    int segundo2 = 0;
+    int segundo3 = 0;
+    string amopm = "";
+    Console.WriteLine("¿Ahora mismo es AM o PM?");
+    amopm = Console.ReadLine();
+    Console.WriteLine("Ingrese la hora");
+    hora = int.Parse(Console.ReadLine());
+    Console.WriteLine("Ingrese los minutos");
+    minuto = int.Parse(Console.ReadLine());
+    Console.WriteLine("Ingrese los segundos");
+    segundo = int.Parse(Console.ReadLine());
+    segundo2 = segundo + 10;
+    if (segundo2 > 59)
+    {
+        minuto++;
+        segundo2 = segundo2 - 60;
+        segundo3 = segundo2 * (-1);
+    }
+    if (minuto > 59)
+    {
+        hora++;
+        minuto = 0;
+    }
+    if (hora > 11)
+    {
+        hora = 0;
+    }
+    if (segundo2 > 59)
+    {
+        Console.WriteLine(hora + amopm + minuto + "min " + segundo3 + "seg");
+    }
+    else
+    {
+        Console.WriteLine(hora + amopm + minuto + "min " + segundo2 + "seg");
+    }
+}
+ejercicio16();
+void ejercicio17()
+{
+    Console.WriteLine("Ingrese la variable A");
+    int a = int.Parse(Console.ReadLine());
+    Console.WriteLine("Ingrese la variable B");
+    int b = int.Parse(Console.ReadLine());
+    Console.WriteLine("Ingrese la variable C");
+    int c = int.Parse(Console.ReadLine());
+
+    double discriminante = (b * b) - (4 * a * c);
+
+    if (discriminante < 0)
+    {
+
+        Console.WriteLine("No hay soluciones reales");
+    }
+    else
+    {
+
+        double resultadosuma = (-b + Math.Sqrt(discriminante)) / (2 * a);
+        double resultadoresta = (-b - Math.Sqrt(discriminante)) / (2 * a);
+
+        Console.WriteLine("La solución usando la suma es: " + resultadosuma);
+        Console.WriteLine("La solución usando la resta es: " + resultadoresta);
+    }
+}
+ejercicio17();
+void ejercicio18()
+{
+    Console.WriteLine("Ingrese la unidad de media inicial: metros, pies, centimetros, pulgadas.");
+    string eleccion = Console.ReadLine();
+    string segundaeleccion = "";
+    int unidadinicial = 0;
+    double resultadopasado = 0;
+    switch (eleccion)
+    {
+        case "metros":
+            Console.WriteLine("Ingrese la cantidad de metros");
+            unidadinicial = int.Parse(Console.ReadLine());
+            Console.WriteLine("A que unidad desea pasarlo");
+            segundaeleccion = Console.ReadLine();
+            switch (segundaeleccion)
+            {
+                case "pies":
+                    resultadopasado = unidadinicial * 3.281;
+                    break;
+                case "centimetros":
+                    resultadopasado = unidadinicial * 100;
+                    break;
+                case "pulgadas":
+                    resultadopasado = unidadinicial * 39.3701;
+                    break;
+
+            }
+            break;
+        case "centimetros":
+            Console.WriteLine("Ingrese la cantidad de centimetros");
+            unidadinicial = int.Parse(Console.ReadLine());
+            Console.WriteLine("A que unidad desea pasarlo");
+            segundaeleccion = Console.ReadLine();
+            switch (segundaeleccion)
+            {
+                case "pies":
+                    resultadopasado = unidadinicial * 0.03281;
+                    break;
+                case "metros":
+                    resultadopasado = unidadinicial * 0.01;
+                    break;
+                case "pulgadas":
+                    resultadopasado = unidadinicial * 0.393701;
+                    break;
+            }
+            break;
+        case "pies":
+            Console.WriteLine("Ingrese la cantidad de pies");
+            unidadinicial = int.Parse(Console.ReadLine());
+            Console.WriteLine("A que unidad desea pasarlo");
+            segundaeleccion = Console.ReadLine();
+            switch (segundaeleccion)
+            {
+                case "metros":
+                    resultadopasado = unidadinicial * 0.3048;
+                    break;
+                case "centimetros":
+                    resultadopasado = unidadinicial * 30.48;
+                    break;
+                case "pulgadas":
+                    resultadopasado = unidadinicial * 12;
+                    break;
+            }
+            break;
+        case "pulgadas":
+            Console.WriteLine("Ingrese la cantidad de pulgadas");
+            unidadinicial = int.Parse(Console.ReadLine());
+            Console.WriteLine("A que unidad desea pasarlo");
+            segundaeleccion = Console.ReadLine();
+            switch (segundaeleccion)
+            {
+                case "metros":
+                    resultadopasado = unidadinicial * 0.0254;
+                    break;
+                case "centimetros":
+                    resultadopasado = unidadinicial * 2.54;
+                    break;
+                case "pies":
+                    resultadopasado = unidadinicial * 0.0833333;
+                    break;
+            }
+            break;
+    }
+    Console.WriteLine("El resultado convertido es de " + resultadopasado);
+
+}
+ejercicio18();
+void ejercicio19()
+{
+    Console.Write("Ingrese un número natural (1-3999): ");
+    int numero = int.Parse(Console.ReadLine());
+
+    if (numero < 1 || numero > 3999)
+    {
+        Console.WriteLine("El número debe estar entre 1 y 3999.");
+        return;
+    }
+
+    string[] miles = { "", "M", "MM", "MMM" };
+    string[] centenas = { "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
+    string[] decenas = { "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
+    string[] unidades = { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
+
+    string romano =
+        miles[numero / 1000] +
+        centenas[(numero % 1000) / 100] +
+        decenas[(numero % 100) / 10] +
+        unidades[numero % 10];
+
+    Console.WriteLine("Número romano: " + romano);
+
+}
+ejercicio19();
+void ejercicio20()
+{
+    Console.Write("Estado del interruptor 1 (0 o 1): ");
+    int i1 = int.Parse(Console.ReadLine());
+
+    Console.Write("Estado del interruptor 2 (0 o 1): ");
+    int i2 = int.Parse(Console.ReadLine());
+
+    Console.Write("Estado del interruptor 3 (0 o 1): ");
+    int i3 = int.Parse(Console.ReadLine());
+
+    int cerrados = i1 + i2 + i3;
+
+    if (cerrados >= 2)
+    {
+        Console.WriteLine("El equipo funcionará.");
+    }
+    else
+    {
+        Console.WriteLine("El equipo NO funcionará.");
+    }
+
+
+}
+ejercicio20();
+void ejercicio21()
+{
+    Console.WriteLine("Ingrese tres numeros");
+    int[] numeros = new int[3];
+    for (int i = 0; i < 3; i++)
+    {
+        numeros[i] = int.Parse(Console.ReadLine());
+    }
+    Console.WriteLine("Ingrese otros tres numeros");
+    int[] segundosnumeros = new int[3];
+    for (int i = 0; i < 3; i++)
+    {
+        segundosnumeros[i] = int.Parse(Console.ReadLine());
+    }
+    for (int i = 0; i < 3; i++)
+    {
+
+        if (numeros[i] == segundosnumeros[0])
+        {
+            Console.WriteLine("Numero corresponiente a la interseccion de los dos conjuntos encontrado: " + numeros[i]);
+        }
+        else if (numeros[i] == segundosnumeros[1])
+        {
+            Console.WriteLine("Numero corresponiente a la interseccion de los dos conjuntos encontrado: " + numeros[i]);
+        }
+        else if (numeros[i] == segundosnumeros[2])
+        {
+            Console.WriteLine("Numero corresponiente a la interseccion de los dos conjuntos encontrado: " + numeros[i]);
+        }
+    }
+
+
+
+}
+ejercicio21();
+void ejercicio22()
+{
+    Console.Write("Ingrese el lado A: ");
+    double a = Convert.ToDouble(Console.ReadLine());
+
+    Console.Write("Ingrese el lado B: ");
+    double b = Convert.ToDouble(Console.ReadLine());
+
+    Console.Write("Ingrese el lado C: ");
+    double c = Convert.ToDouble(Console.ReadLine());
+    if (a == b && b == c)
+    {
+        Console.WriteLine("EQUILATERO");
+    }
+    else if (a == b || b == c || a == c)
+    {
+        Console.WriteLine("ISOSCELES");
+    }
+    else
+    {
+        Console.WriteLine("ESCALENO");
+    }
+}
+ejercicio22();
