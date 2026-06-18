@@ -254,6 +254,8 @@ void ganador(int mayornivelred, int mayornivelGreen,int mayornivelBlue,int mayor
     }
 }
 
+Console.WriteLine("------------------------");
+
 bool recursiva(int numero)
 {
     if (numero == -5)
