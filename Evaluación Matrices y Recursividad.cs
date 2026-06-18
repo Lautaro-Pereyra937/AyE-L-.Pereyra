@@ -254,16 +254,17 @@ void ganador(int mayornivelred, int mayornivelGreen,int mayornivelBlue,int mayor
     }
 }
 
-int numero = 50;
-int recursiva(int numero)
+bool recursiva(int numero)
 {
-    if (numero == 0)
+    if (numero == -5)
     {
-        return 0;
+        return false;
     }
     else
     {
-        return numero - recursiva(5);
+        Console.WriteLine(numero);
+        recursiva(numero - 5);
+        return true;
     }
 }
-Console.WriteLine(Convert.ToInt32(recursiva(numero)));
+recursiva(50);
