@@ -119,3 +119,4 @@ int potenciadeunnumero(int elevar, int potencia)
         return elevar * potenciadeunnumero(elevar, potencia - 1);
     }
 }
+Console.WriteLine(Convert.ToInt32(potenciadeunnumero(elevar,potencia)));
