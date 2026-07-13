@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.Design;
+using System.ComponentModel.Design;
 using System.Runtime.ConstrainedExecution;
 using System;
 namespace ConsoleApp1
@@ -36,7 +36,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            string[] objetos = {"Espada de Hierro", "Armadura de Cuero", "Poción de Vida", "Amuleto Mágico","Escudo Pesado", "Botas de Velocidad", "Casco de Bronce", "Báculo Sagrado","Anillo de Poder", "Daga Envenenada", "Manto de Invisibilidad", "Poción de Fuerza","Hacha de Batalla", "Guanteletes de Hierro", "Talismán de la Suerte", "Arco Largo","Poción de Maná", "Capa del Errante", "Lanza de Plata", "Cinturón de Gigante","Grimorio Oscuro", "Escudo de Madera"};
+            string[] objetos = { "Espada de Hierro", "Armadura de Cuero", "Poción de Vida", "Amuleto Mágico", "Escudo Pesado", "Botas de Velocidad", "Casco de Bronce", "Báculo Sagrado", "Anillo de Poder", "Daga Envenenada", "Manto de Invisibilidad", "Poción de Fuerza", "Hacha de Batalla", "Guanteletes de Hierro", "Talismán de la Suerte", "Arco Largo", "Poción de Maná", "Capa del Errante", "Lanza de Plata", "Cinturón de Gigante", "Grimorio Oscuro", "Escudo de Madera" };
             Random aleatorio = new Random();
             Personaje Cabral = new Personaje("Guerrero", 50);
             Personaje Toledo = new Personaje("Magordito", 60);
@@ -54,15 +54,15 @@ namespace ConsoleApp1
             {
                 Console.WriteLine($"Turno : {i}");
                 Salas salaActual = listaSalas[i];
-                if(turno1 == true)
+                if (turno1 == true)
                 {
-                    if(salaActual.Dificultad < Cabral.Poder)
-                    { 
+                    if (salaActual.Dificultad < Cabral.Poder)
+                    {
                         Console.WriteLine("Logro robarlo ya que su poder es mayor al de la sala");
                         Cabral.Poder += salaActual.Poderitem;
                         for (int j = 0; j < Cabral.Items.Length; j++)
                         {
-                            if(Cabral.Items[j] == null)
+                            if (Cabral.Items[j] == null)
                             {
                                 Cabral.Items[j] = salaActual.Item;
                                 Console.WriteLine($"[{salaActual.Item}] guardado en la mochila de {Cabral.Nombre}.");
@@ -70,7 +70,7 @@ namespace ConsoleApp1
                             }
                         }
                     }
-                    else{Console.WriteLine("No logro robarlo ya que su poder es menor al de la sala ;(");}
+                    else { Console.WriteLine("No logro robarlo ya que su poder es menor al de la sala ;("); }
                     turno1 = false;
                 }
 
@@ -94,32 +94,46 @@ namespace ConsoleApp1
                     turno1 = true;
                 }
             }
-            if(Toledo.Poder < Cabral.Poder)
+            if (Toledo.Poder < Cabral.Poder)
             {
+                Console.WriteLine($"Ha ganado Cabral - Inventario: ");
                 for (int j = 0; j < Cabral.Items.Length; j++)
                 {
-                    Console.WriteLine($"Items: [{Cabral.Items[j]}]");
+                    if (Cabral.Items[j] != null)
+                    {
+                        Console.WriteLine($"Items: [{Cabral.Items[j]}]");
+                    }
                 }
             }
             else if(Toledo.Poder > Cabral.Poder)
             {
+                Console.WriteLine($"Ha ganado Toledo - Inventario: ");
                 for (int j = 0; j < Toledo.Items.Length; j++)
                 {
-                    Console.WriteLine($"Items: [{Toledo.Items[j]}]");
+                    if (Toledo.Items[j] != null)
+                    {
+                        Console.WriteLine($"Items: [{Toledo.Items[j]}]");
+                    }
                 }
             }
             else if(Toledo.Poder == Cabral.Poder)
             {
                 Console.WriteLine("Han empatado");
-                Console.WriteLine("Items de Cabral");
+                Console.WriteLine("Inventario de Cabral");
                 for (int j = 0; j < Cabral.Items.Length; j++)
                 {
-                    Console.WriteLine($"Items: [{Cabral.Items[j]}]");
+                    if (Cabral.Items[j] != null)
+                    {
+                        Console.WriteLine($"Items: [{Cabral.Items[j]}]");
+                    }
                 }
-                Console.WriteLine("Items de Toledo");
+                Console.WriteLine("Inventario de Toledo");
                 for (int j = 0; j < Toledo.Items.Length; j++)
                 {
-                    Console.WriteLine($"Items: [{Toledo.Items[j]}]");
+                    if (Toledo.Items[j] != null)
+                    {
+                        Console.WriteLine($"Items: [{Toledo.Items[j]}]");
+                    }
                 }
             }
         }
