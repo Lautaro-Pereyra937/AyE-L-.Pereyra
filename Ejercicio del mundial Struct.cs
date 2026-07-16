@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1
+namespace ConsoleApp1
 {
     public struct Jugador
     {
@@ -15,7 +15,7 @@
 
         public string[] Equipo { get; set; }
 
-        public Jugador(string nombre, string apellido, int cant_goles, int cant_disparos_arco, int numero_camiseta , string posicion)
+        public Jugador(string nombre, string apellido, int cant_goles, int cant_disparos_arco, int numero_camiseta, string posicion)
         {
             Nombre = nombre;
             Apellido = apellido;
@@ -46,11 +46,11 @@
 
             Jugador mejor = Ver_mejor_jugador(equipo);
             double mejor_indice = Generarindiceataque(mejor.Cant_goles, mejor.Cant_disparos_arco);
-            Console.WriteLine($"El jugador con mayor indice de ataque es: {mejor.Nombre} {mejor.Apellido}");
+            Console.WriteLine($"El jugador con mayor indice de ataque es: {mejor.Nombre} {mejor.Apellido} Posicion: {mejor.Posicion} #{mejor.Numero_camiseta} Disparos al arco:{mejor.Cant_disparos_arco} Goles:{mejor.Cant_goles} Indice ataque: {mejor_indice:F2}");
         }
-        static double Generarindiceataque(int Cant_goles,int Cant_disparos_arco)
+        static double Generarindiceataque(int Cant_goles, int Cant_disparos_arco)
         {
-            if(Cant_disparos_arco == 0){return 0;}
+            if (Cant_disparos_arco == 0) { return 0; }
             return ((double)Cant_goles / Cant_disparos_arco) * 100;
         }
 
