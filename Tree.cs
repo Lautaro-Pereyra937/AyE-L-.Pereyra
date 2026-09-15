@@ -221,12 +221,12 @@ namespace ConsoleApp2
                 return true;
             }
 
-            if(nodoActual.nodoIzquierdo != null && nodoActual.nodoIzquierdo.Valor >= nodoActual.nodoIzquierdo.Valor)
+            if(nodoActual.nodoIzquierdo != null && nodoActual.nodoIzquierdo.Valor > nodoActual.Valor)
             {
                 return false;
             }
 
-            if(nodoActual.nodoDerecho != null && nodoActual.nodoDerecho.Valor >= nodoActual.nodoDerecho.Valor)
+            if(nodoActual.nodoDerecho != null && nodoActual.nodoDerecho.Valor < nodoActual.Valor)
             {
                 return false;
             }
