@@ -18,7 +18,7 @@ namespace ConsoleApp2
             foreach(agentes_valorant agente in agentes)
             {
                 arbolito.insertar(agente);
-                Console.WriteLine(agente.nombre_agente);
+                Console.WriteLine($"ID: {agente.id} Nombre agente {agente.nombre_agente} Tipo: {agente.tipo_agente} Fecha: {agente.fecha_lanzamiento} Nacionalidad: {agente.nacionalidad}");
             }
 
             Console.WriteLine("Ingrese un id para buscar un agente");
