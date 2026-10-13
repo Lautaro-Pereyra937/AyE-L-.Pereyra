@@ -58,7 +58,7 @@ namespace ConsoleApp2
 
             if(actual.agente.id == idbuscado)
             {
-                return $"Agente encontrado {actual.agente.nombre_agente}";
+                return $"Agente encontrado {actual.agente.nombre_agente} Tipo: {actual.agente.tipo_agente} Fecha: {actual.agente.fecha_lanzamiento} Nacionalidad: {actual.agente.nacionalidad}";
             }
 
             if(actual.agente.id < idbuscado)
